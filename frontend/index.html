@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Deployment Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <p class="badge">DEVOPS PROJECT</p>
+            <h1>Automated Application Deployment Platform</h1>
+            <p class="subtitle">
+                Docker • CI/CD • AWS
+            </p>
+        </header>
+
+        <section class="status-card">
+
+            <div class="status-header">
+                <div>
+                    <h2>Application Status</h2>
+                    <p>Live backend connectivity</p>
+                </div>
+
+                <div id="statusIndicator" class="status offline">
+                    Checking...
+                </div>
+            </div>
+
+            <div class="info-grid">
+
+                <div class="info-box">
+                    <span>Application</span>
+                    <strong id="application">Loading...</strong>
+                </div>
+
+                <div class="info-box">
+                    <span>Environment</span>
+                    <strong id="environment">Loading...</strong>
+                </div>
+
+                <div class="info-box">
+                    <span>Version</span>
+                    <strong id="version">Loading...</strong>
+                </div>
+
+                <div class="info-box">
+                    <span>Backend</span>
+                    <strong id="backendStatus">Checking...</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer>
+            <p>Built as part of a hands-on Cloud & DevOps learning journey.</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
