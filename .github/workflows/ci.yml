@@ -31,3 +31,17 @@ jobs:
 
       - name: Run API tests
         run: npm test
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build backend Docker image
+        run: docker build -t automated-deployment-backend:ci ./backend
+
+      - name: Build frontend Docker image
+        run: docker build -t automated-deployment-frontend:ci ./frontend
