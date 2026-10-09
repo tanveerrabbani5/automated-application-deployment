@@ -65,4 +65,38 @@ jobs:
           severity: HIGH,CRITICAL
           ignore-unfixed: true
           exit-code: '0'
-          
+
+        
+      - name: Log in to Docker Hub
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Push backend image to Docker Hub
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker tag automated-deployment-backend:ci \
+            "$DOCKERHUB_USERNAME/automated-application-deployment-backend:latest"
+          docker tag automated-deployment-backend:ci \
+            "$DOCKERHUB_USERNAME/automated-application-deployment-backend:$IMAGE_TAG"
+          docker push "$DOCKERHUB_USERNAME/automated-application-deployment-backend:latest"
+          docker push "$DOCKERHUB_USERNAME/automated-application-deployment-backend:$IMAGE_TAG"
+
+      - name: Push frontend image to Docker Hub
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker tag automated-deployment-frontend:ci \
+            "$DOCKERHUB_USERNAME/automated-application-deployment-frontend:latest"
+          docker tag automated-deployment-frontend:ci \
+            "$DOCKERHUB_USERNAME/automated-application-deployment-frontend:$IMAGE_TAG"
+          docker push "$DOCKERHUB_USERNAME/automated-application-deployment-frontend:latest"
+          docker push "$DOCKERHUB_USERNAME/automated-application-deployment-frontend:$IMAGE_TAG"
+
