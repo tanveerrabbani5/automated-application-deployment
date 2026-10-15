@@ -38,10 +38,18 @@ jobs:
               "cd /home/ubuntu",
               "docker pull tanveer7docker/automated-application-deployment-backend:latest",
               "docker pull tanveer7docker/automated-application-deployment-frontend:latest",
+
               "docker stop deployment-backend deployment-frontend || true",
               "docker rm deployment-backend deployment-frontend || true",
-              "docker run -d --name deployment-backend --restart unless-stopped -e NODE_ENV=production -e PORT=3000 tanveer7docker/automated-application-deployment-backend:latest",
-              "docker run -d --name deployment-frontend --restart unless-stopped -p 80:80 tanveer7docker/automated-application-deployment-frontend:latest",
+
+              "docker network create automated-deployment-network || true",
+
+              "docker run -d --name deployment-backend --restart unless-stopped --network automated-deployment-network -e NODE_ENV=production -e PORT=3000 tanveer7docker/automated-application-deployment-backend:latest",
+
+              "docker run -d --name deployment-frontend --restart unless-stopped --network automated-deployment-network -p 80:80 tanveer7docker/automated-application-deployment-frontend:latest",
+
+              "sleep 5",
+
               "docker ps"
             ]' \
             --query 'Command.CommandId' \
