@@ -1,0 +1,47 @@
+name: OIDC Test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  oidc-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials using OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::742851379229:role/Auto-App-deployment-Role
+          aws-region: ap-south-1
+
+      - name: Verify AWS identity
+        run: |
+          aws sts get-caller-identity
+
+      - name: Send test command to EC2
+        run: |
+          COMMAND_ID=$(aws ssm send-command \
+            --instance-ids i-06dfaf8454dc5cc9e \
+            --document-name AWS-RunShellScript \
+            --parameters 'commands=["echo GitHub Actions OIDC SSM test successful"]' \
+            --query 'Command.CommandId' \
+            --output text)
+
+          echo "Command ID: $COMMAND_ID"
+
+          aws ssm wait command-executed \
+            --command-id "$COMMAND_ID" \
+            --instance-id i-06dfaf8454dc5cc9e
+
+          aws ssm get-command-invocation \
+            --command-id "$COMMAND_ID" \
+            --instance-id i-06dfaf8454dc5cc9e \
+            --query '{Status:Status,Output:StandardOutputContent}' \
+            --output table
