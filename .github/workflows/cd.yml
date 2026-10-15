@@ -27,7 +27,7 @@ jobs:
 
       - name: Deploy application to EC2
         run: |
-          INSTANCE_ID="i-06dfaf8454dc5cc9e"
+          INSTANCE_ID="i-061e5b8e4991fb81f"
 
           echo "Deploying to EC2 instance: $INSTANCE_ID"
 
