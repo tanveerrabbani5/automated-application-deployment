@@ -7,7 +7,7 @@ variable "aws_region" {
 variable "project_name" {
   description = "Project resource name prefix"
   type        = string
-  default     = "project2-deployment"
+  default     = "Auto-App-deployment"
 }
 
 variable "instance_type" {
