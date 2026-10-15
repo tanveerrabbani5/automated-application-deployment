@@ -108,6 +108,7 @@ resource "aws_iam_instance_profile" "ec2_ssm" {
 resource "aws_instance" "app" {
   ami                         = data.aws_ssm_parameter.ubuntu_ami.value
   instance_type               = var.instance_type
+  key_name                    = "Mumbai-aws"
   subnet_id                   = aws_subnet.public.id
   vpc_security_group_ids      = [aws_security_group.web.id]
   associate_public_ip_address = true
