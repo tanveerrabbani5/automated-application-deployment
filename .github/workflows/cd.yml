@@ -1,7 +1,10 @@
 name: CD - Deploy Application to AWS EC2
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 permissions:
   id-token: write
