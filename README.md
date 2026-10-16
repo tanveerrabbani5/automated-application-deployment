@@ -36,35 +36,9 @@ The deployment does not require manually logging into the EC2 instance through S
 
 ## 🏗️ Architecture
 
-```text
-                  GitHub
-                     │
-                     ▼
-              GitHub Actions
-                  CI / CD
-                     │
-          ┌──────────┴──────────┐
-          ▼                     ▼
-      Docker Hub             AWS OIDC
-                                │
-                                ▼
-                              IAM
-                                │
-                                ▼
-                              SSM
-                                │
-                                ▼
-                              EC2
-                         ┌──────┴──────┐
-                         ▼             ▼
-                     Backend       Frontend
-                     Node.js        Nginx
-                      :3000          :80
-                         │             │
-                         └─────┬───────┘
-                               ▼
-                        Docker Network
-```
+![Architecture map](docs/images/Architecture-map.png)
+
+---
 
 ---
 
