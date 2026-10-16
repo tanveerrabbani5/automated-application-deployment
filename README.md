@@ -36,7 +36,7 @@ The deployment does not require manually logging into the EC2 instance through S
 
 ## 🏗️ Architecture
 
-![Architecture map](docs/images/Architecture-map.png)
+![Architecture map](doc/images/Architecture-map.png)
 
 ---
 
