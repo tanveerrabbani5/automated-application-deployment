@@ -4,31 +4,9 @@ An end-to-end DevOps project that automates **testing, Docker image building, se
 
 ## 📌 Project Overview
 
-Whenever code is pushed to the `main` branch:
+A complete demonstration of the automated application deployment workflow:
 
-```text
-Developer
-   ↓
-GitHub
-   ↓
-GitHub Actions CI
-   ↓
-Tests → Docker Build → Trivy Scan
-   ↓
-Docker Hub
-   ↓
-CI Success
-   ↓
-GitHub Actions CD
-   ↓
-AWS OIDC → AWS SSM
-   ↓
-EC2
-   ↓
-Docker Containers
-   ↓
-Live Application
-```
+▶️ **[Watch Project Demo](https://github.com/user-attachments/assets/fa109f5b-0123-462b-b600-d9959ee91488)**
 
 The deployment does not require manually logging into the EC2 instance through SSH.
 
