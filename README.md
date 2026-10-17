@@ -6,7 +6,7 @@ An end-to-end DevOps project that automates **testing, Docker image building, se
 
 A complete demonstration of the automated application deployment workflow:
 
-▶️ **[Watch Project Demo](https://github.com/user-attachments/assets/fa109f5b-0123-462b-b600-d9959ee91488)**
+▶️ **[Watch Project Overview](https://github.com/user-attachments/assets/fa109f5b-0123-462b-b600-d9959ee91488)**
 
 The deployment does not require manually logging into the EC2 instance through SSH.
 
