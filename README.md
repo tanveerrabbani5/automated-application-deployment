@@ -2,6 +2,12 @@
 
 An end-to-end DevOps project that automates **testing, Docker image building, security scanning, image publishing, and deployment to AWS EC2** using GitHub Actions, Docker, Terraform, AWS SSM, and GitHub OIDC.
 
+##❯❯❯❯Forward --> Linkdin-Post
+
+**Linkdin-Post:** https://lnkd.in/p/dCMuVXM5
+---
+
+
 ## 📌 Project Overview
 
 A complete demonstration of the automated application deployment workflow:
