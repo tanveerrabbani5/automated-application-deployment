@@ -361,5 +361,5 @@ Live Application
 B.Tech – Information Technology  
 Cloud & DevOps Enthusiast
 
-**GitHub:** https://github.com/tanveerrabbani5  
-**LinkedIn:** https://www.linkedin.com/in/tanveer-rabbani-a-870729362/
+- LinkedIn: [Tanveer Rabbani](https://www.linkedin.com/in/tanveer-rabbani-a-870729362/)
+- GitHub: [@tanveerrabbani5](https://github.com/tanveerrabbani5)
